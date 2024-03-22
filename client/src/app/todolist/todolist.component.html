@@ -1,0 +1,12 @@
+<form #form="ngForm" class="toDoList">
+    <mat-form-field class="example-full-width">
+        <mat-label>Task</mat-label>
+        <input name="title" ngModel matInput placeholder="Enter Task">
+    </mat-form-field>
+
+    <button (click)="tasksService.addNewTask(form.value)" mat-raised-button color="accent">Add Task</button>
+
+    <div class="tasks">
+        <app-task [task]="task" *ngFor="let task of tasksService.getTasks()"></app-task>
+    </div>
+</form>
